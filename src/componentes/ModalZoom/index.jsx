@@ -12,7 +12,7 @@ const Overlay = styled.div`
     z-index: 1000;
 `
 
-const DialogEstilizado = styled.div `
+const DialogEstilizado = styled.dialog`
     position: absolute;
     top: 50%;
     left: 50%;
@@ -33,13 +33,13 @@ const DialogEstilizado = styled.div `
     }   
 `
 
-const ModalZoom = ({foto, aoFechar}) => {
+const ModalZoom = ({foto, aoFechar, aoAlternarFavorito}) => {
     return (
         <>
             {foto && <> 
                 <Overlay/>
                 <DialogEstilizado open={!!foto} onClose={aoFechar}>
-                <Imagem foto={foto} expandida={true}/>
+                <Imagem foto={foto} expandida={true} aoAlternarFavorito={aoAlternarFavorito}/>
                 <form method="dialog">
                     <BotaoIcone formMethod="dialog">
                         <img src="/icones/fechar.png" alt="Ícone de fechar" />
